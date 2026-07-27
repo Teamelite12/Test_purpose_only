@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#ffffff" />
+    <title>Test and Accessibility</title>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="nav" aria-label="Main navigation">
+        <a class="nav-brand" href="#">Test &amp; Accessibility</a>
+        <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Toggle navigation">
+          <span class="hamburger"></span>
+          <span class="hamburger"></span>
+          <span class="hamburger"></span>
+        </button>
+        <ul class="nav-menu" id="nav-menu" role="list">
+          <li><a href="#samples">Samples</a></li>
+          <li><a href="#about">About</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="main-content">
+      <section class="hero" aria-labelledby="hero-heading">
+        <h1 id="hero-heading">Test and Accessibility</h1>
+        <p>A repository for testing and accessibility experiments.</p>
+      </section>
+
+      <section id="samples" class="samples" aria-labelledby="samples-heading">
+        <h2 id="samples-heading">Code Samples</h2>
+        <ul class="sample-list" role="list">
+          <li class="sample-card">
+            <span class="lang-badge">JavaScript</span>
+            <a href="sample.js">sample.js</a>
+          </li>
+          <li class="sample-card">
+            <span class="lang-badge">Java</span>
+            <a href="sample.java">sample.java</a>
+          </li>
+          <li class="sample-card">
+            <span class="lang-badge">C</span>
+            <a href="c.c">c.c</a>
+          </li>
+          <li class="sample-card">
+            <span class="lang-badge">C++</span>
+            <a href="sample.c++">sample.c++</a>
+          </li>
+        </ul>
+      </section>
+
+      <section id="about" class="about" aria-labelledby="about-heading">
+        <h2 id="about-heading">About</h2>
+        <p>This repository is used for testing and accessibility purposes. See <a href="SECURITY.md">SECURITY.md</a> for security policy details.</p>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>&copy; 2024 Teamelite12. All rights reserved.</p>
+    </footer>
+
+    <script>
+      const toggle = document.querySelector('.nav-toggle');
+      const menu = document.querySelector('.nav-menu');
+      toggle.addEventListener('click', () => {
+        const expanded = toggle.getAttribute('aria-expanded') === 'true';
+        toggle.setAttribute('aria-expanded', String(!expanded));
+        menu.classList.toggle('open');
+      });
+    </script>
+  </body>
+</html>
